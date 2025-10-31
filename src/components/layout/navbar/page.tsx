@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FlaskRound, Table, BookOpen, Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
