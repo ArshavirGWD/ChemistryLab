@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { FlaskConical, Table2, FileQuestion } from "lucide-react";
 
 export default function HomePage() {
   return (
