@@ -14,11 +14,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex gap-8 text-white text-lg font-medium">
           <Link
-            href="/molar-mass"
+            href="/calculations"
             className="flex items-center gap-2 hover:text-cyan-300 transition-all duration-300"
           >
             <FlaskRound size={20} />
-            جرم مولی
+            محاسبات
           </Link>
 
           <Link
