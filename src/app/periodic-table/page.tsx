@@ -1,33 +1,28 @@
 "use client";
-import elements from "periodic-table";
+import { ElementsProps } from "@/types/elements";
+import elementsFa from "@/utils/elements-fa.json";
 import { useState } from "react";
-interface ElementProps {
-  name: string;
-  symbol: string;
-  atomicNumber: number;
-  atomicMass: number;
-}
+
 export default function PeriodicTable() {
-  const [selectedElement, setSelectedElement] = useState<ElementProps | null>(
+  const [selectedElement, setSelectedElement] = useState<ElementsProps | null>(
     null
   );
-  const allElements = elements.all();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900 text-white flex flex-col items-center p-6">
       <h1 className="text-3xl font-bold mb-5 mt-15 text-cyan-300">
         جدول تناوبی عناصر
       </h1>
+
       <div
         dir="rtl"
-        className="grid gap-2 p-6
-  grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-13"
+        className="grid gap-2 p-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-13"
       >
-        {allElements.map((el: ElementProps) => (
+        {elementsFa.map((el) => (
           <button
             onClick={() => setSelectedElement(el)}
             key={el.symbol}
-            className="bg-gray-800/70 backdrop-blur-sm hover:bg-cyan-600/40 transition rounded-lg p-3 flex flex-col items-center text-sm text-center shadow-lg"
+            className="bg-gray-800/70 cursor-pointer backdrop-blur-sm hover:bg-cyan-600/40 transition rounded-lg p-3 flex flex-col items-center text-sm text-center shadow-lg"
           >
             <span className="text-lg font-bold">{el.symbol}</span>
             <span className="text-xs text-gray-300">{el.name}</span>
@@ -53,9 +48,7 @@ export default function PeriodicTable() {
             <p className="text-white mb-1">
               جرم اتمی: {selectedElement.atomicMass.toLocaleString("fa-IR")}
             </p>
-            {/* {selectedElement.groupBlock && (
-              <p className="text-white mb-3">دسته: {selectedElement.groupBlock}</p>
-            )} */}
+
             <button
               onClick={() => setSelectedElement(null)}
               className="mt-4 cursor-pointer px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-semibold rounded-md transition"
